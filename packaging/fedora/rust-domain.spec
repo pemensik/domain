@@ -86,6 +86,18 @@ use the "futures" feature of the "%{crate}" crate.
 %files       -n %{name}+futures-devel
 %ghost %{crate_instdir}/Cargo.toml
 
+%package     -n %{name}+interop-devel
+Summary:        %{summary}
+BuildArch:      noarch
+
+%description -n %{name}+interop-devel %{_description}
+
+This package contains library source intended for building other packages which
+use the "interop" feature of the "%{crate}" crate.
+
+%files       -n %{name}+interop-devel
+%ghost %{crate_instdir}/Cargo.toml
+
 %package     -n %{name}+libc-devel
 Summary:        %{summary}
 BuildArch:      noarch
@@ -132,6 +144,18 @@ This package contains library source intended for building other packages which
 use the "resolv-sync" feature of the "%{crate}" crate.
 
 %files       -n %{name}+resolv-sync-devel
+%ghost %{crate_instdir}/Cargo.toml
+
+%package     -n %{name}+ring-devel
+Summary:        %{summary}
+BuildArch:      noarch
+
+%description -n %{name}+ring-devel %{_description}
+
+This package contains library source intended for building other packages which
+use the "ring" feature of the "%{crate}" crate.
+
+%files       -n %{name}+ring-devel
 %ghost %{crate_instdir}/Cargo.toml
 
 %package     -n %{name}+sign-devel
@@ -182,35 +206,6 @@ use the "tokio" feature of the "%{crate}" crate.
 %files       -n %{name}+tokio-devel
 %ghost %{crate_instdir}/Cargo.toml
 
-%ifnarch %{power64} s390 s390x
-# ring library does not compile on some architectures
-# s390x: https://github.com/briansmith/ring/issues/986
-# ppc64: https://github.com/briansmith/ring/issues/389
-
-%package     -n %{name}+interop-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+interop-devel %{_description}
-
-This package contains library source intended for building other packages which
-use the "interop" feature of the "%{crate}" crate.
-
-%files       -n %{name}+interop-devel
-%ghost %{crate_instdir}/Cargo.toml
-
-%package     -n %{name}+ring-devel
-Summary:        %{summary}
-BuildArch:      noarch
-
-%description -n %{name}+ring-devel %{_description}
-
-This package contains library source intended for building other packages which
-use the "ring" feature of the "%{crate}" crate.
-
-%files       -n %{name}+ring-devel
-%ghost %{crate_instdir}/Cargo.toml
-
 %package     -n %{name}+tsig-devel
 Summary:        %{summary}
 BuildArch:      noarch
@@ -234,8 +229,6 @@ use the "validate" feature of the "%{crate}" crate.
 
 %files       -n %{name}+validate-devel
 %ghost %{crate_instdir}/Cargo.toml
-
-%endif
 
 %prep
 %autosetup -n %{crate}-%{version_no_tilde} -p1
