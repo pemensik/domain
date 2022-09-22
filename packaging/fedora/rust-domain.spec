@@ -15,6 +15,8 @@ URL:            https://crates.io/crates/domain
 Source:         %{crates_source}
 
 ExclusiveArch:  %{rust_arches}
+# https://bugzilla.redhat.com/show_bug.cgi?id=1869980
+ExcludeArch: %{power64} s390 s390x
 
 BuildRequires:  rust-packaging >= 21
 
