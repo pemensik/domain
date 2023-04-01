@@ -15,7 +15,7 @@ URL:            https://crates.io/crates/domain
 VCS:            git:%{forgeurl0}
 Source:         %{crates_source}
 # Automatically generated patch to strip foreign dependencies
-%dnl Patch:          domain-fix-metadata-auto.diff
+Patch:          domain-fix-metadata-auto.diff
 
 ExclusiveArch:  %{rust_arches}
 # https://bugzilla.redhat.com/show_bug.cgi?id=1869980
