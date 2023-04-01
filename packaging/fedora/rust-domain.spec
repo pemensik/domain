@@ -3,17 +3,19 @@
 %global debug_package %{nil}
 
 %global crate domain
+%global forgeurl0 https://github.com/NLnetLabs/domain
 
 Name:           rust-domain
-Version:        0.7.0
+Version:        0.7.2
 Release:        %autorelease
 Summary:        DNS library for Rust
 
 License:        BSD-3-Clause
 URL:            https://crates.io/crates/domain
+VCS:            git:%{forgeurl0}
 Source:         %{crates_source}
 # Automatically generated patch to strip foreign dependencies
-Patch:          domain-fix-metadata-auto.diff
+%dnl Patch:          domain-fix-metadata-auto.diff
 
 ExclusiveArch:  %{rust_arches}
 # https://bugzilla.redhat.com/show_bug.cgi?id=1869980
